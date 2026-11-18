@@ -1,0 +1,31 @@
+name: p1-hybrid-rag
+
+services:
+  rag-qdrant:
+    image: qdrant/qdrant:v1.20.2
+    volumes:
+      - p1_rag_qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    # No host port: Qdrant is reachable only on the compose network.
+
+  rag-api:
+    build: .
+    image: p1-hybrid-rag-api:latest
+    ports:
+      - "127.0.0.1:8101:8000"
+    environment:
+      QDRANT_URL: http://rag-qdrant:6333
+      RAG_LLM_MODE: ${RAG_LLM_MODE:-mock}
+      RAG_LLM_BASE_URL: ${RAG_LLM_BASE_URL:-http://gw-api:8000}
+      RAG_LLM_API_KEY: ${RAG_LLM_API_KEY:-sk-demo-team-a}
+      RAG_RERANK_THRESHOLD: ${RAG_RERANK_THRESHOLD:-0.35}
+    depends_on:
+      rag-qdrant:
+        condition: service_healthy
+
+volumes:
+  p1_rag_qdrant_data:

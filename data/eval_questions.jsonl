@@ -1,0 +1,12 @@
+{"id": "q01", "tenant": "acme", "question": "How many vacation days roll over to next year?", "relevant": [["acme-pto-policy", 2]]}
+{"id": "q02", "tenant": "acme", "question": "How fast do I earn time off each month?", "relevant": [["acme-pto-policy", 1]]}
+{"id": "q03", "tenant": "acme", "question": "How far ahead must a PTO request be approved by my manager?", "relevant": [["acme-pto-policy", 2]]}
+{"id": "q04", "tenant": "acme", "question": "Who has to sign off on a critical deployment?", "relevant": [["acme-change-mgmt", 2]]}
+{"id": "q05", "tenant": "acme", "question": "DEPLOY-4021", "relevant": [["acme-change-mgmt", 3]]}
+{"id": "q06", "tenant": "acme", "question": "Can we ship releases over the Christmas holidays?", "relevant": [["acme-change-mgmt", 2]]}
+{"id": "q07", "tenant": "acme", "question": "How often must passwords be rotated?", "relevant": [["acme-security", 1]]}
+{"id": "q08", "tenant": "acme", "question": "I clicked a phishing link, who do I tell and how quickly?", "relevant": [["acme-security", 2]]}
+{"id": "q09", "tenant": "acme", "question": "Is 2fa needed for the VPN?", "relevant": [["acme-security", 1]]}
+{"id": "q10", "tenant": "acme", "question": "What paperwork does a new supplier need before a purchase order?", "relevant": [["acme-vendor-onboarding", 1]]}
+{"id": "q11", "tenant": "acme", "question": "What does error code DEPLOY-5002 mean?", "relevant": [["acme-change-mgmt", 3]]}
+{"id": "q12", "tenant": "globex", "question": "What is the daily limit for food while travelling?", "relevant": [["globex-expense", 1]]}
